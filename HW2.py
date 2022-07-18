@@ -7,7 +7,16 @@
 '''
 #Решение задачи 1
 '''
-
+n = abs(float(input("Введите вещественное число в формате ±xx.xx ")))
+n1, n2 = map(int, str(n).split('.'))
+sum = 0
+while n1 > 0:
+    sum += n1 % 10
+    n1 //= 10
+while n2 > 0:
+    sum += n2 % 10
+    n2 //= 10
+print(sum)
 '''
 
 
@@ -17,9 +26,15 @@
 чисел от 1 до N. Факториал
 5! = 120
 '''
-#Решение задачи 2
+#Решение задачи 2 (факториал, а не набор факториалов, как было изначально)
 '''
-
+n = int(input('Введите неотрицательное число '))
+if n < 0: print('Это отрицательное число')
+elif n == 0: print(1)
+else:
+    fact = 1
+    for i in range(1, n + 1): fact *= i
+    print(fact)
 '''
 
 
@@ -36,9 +51,15 @@
 '''
 #Решение задачи 3
 '''
-
+arr = [3, 9, 7, 0]
+max = arr[0]
+for i in arr:
+    if i > max: max = i
+second_max = arr[0]
+for i in arr:
+    if i > second_max and i < max: second_max = i
+print(second_max)
 '''
-
 
 #Дополнительная задача
 '''
@@ -54,5 +75,10 @@
 '''
 #Решение дополнительной задачи
 '''
-
+x, p, y = map(int, input("Введите сумму вклада, ежегодный процент и ожидаемую итоговую сумму ").split())
+count = 0
+while x < y:
+    x += x / 100 * p // 1
+    count += 1
+print(count)
 '''
